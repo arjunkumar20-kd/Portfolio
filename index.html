@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+
+  <!-- ✅ Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- ✅ CSS File -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ----- Navigation Bar ----- -->
+  <header>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ----- Hero Section ----- -->
+  <section id="home">
+    <h1>Hello, I'm <span style="color:#00bfff;">Arjun Kumar</span></h1>
+    <p>Welcome to my portfolio! I’m a passionate web developer who loves creating clean, modern, and responsive websites.</p>
+    <a href="resume.pdf" download class="resume-btn">📄 Download Resume</a>
+  </section>
+
+  <!-- ----- About Section ----- -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a creative and detail-oriented front-end developer who enjoys bringing ideas to life through code. My focus is on crafting beautiful and functional web experiences with modern technologies.</p>
+  </section>
+
+  <!-- ----- Skills Section ----- -->
+  <section id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Responsive Design</div>
+      <div class="skill">GitHub</div>
+      <div class="skill">React (Learning)</div>
+    </div>
+  </section>
+
+  <!-- ----- Projects Section ----- -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project">
+        <h3>🌆 Image Gallery</h3>
+        <p>A responsive gallery with lightbox view built using HTML, CSS, and JS.</p>
+      </div>
+      <div class="project">
+        <h3>📘 Portfolio Website</h3>
+        <p>This site! A personal portfolio showcasing my skills and projects.</p>
+      </div>
+      <div class="project">
+        <h3>⚙️ Calculator App</h3>
+        <p>A simple calculator built using HTML, CSS, and JavaScript logic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ----- Contact Section ----- -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form class="contact-form" onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="status" style="margin-top:15px;color:#00bfff;"></p>
+
+    <!-- ✅ Social Links Section -->
+    <div class="social-links">
+      <a href="https://github.com/arjunkumar20-kd/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/arjun-kumar-05055930b" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/your_arjun_7x._/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+
+  <!-- ----- Footer ----- -->
+  <footer>
+    <p>© 2025 Arjun Kumar | Built with 💙 using HTML, CSS & JS</p>
+  </footer>
+
+  <!-- ✅ JS File -->
+  <script src="script.js"></script>
+</body>
+</html>
