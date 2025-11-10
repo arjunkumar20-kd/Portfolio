@@ -1,7 +1,5 @@
 // Fade-in animation for sections
 const sections = document.querySelectorAll('section');
-const options = { threshold: 0.2 };
-
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -9,7 +7,7 @@ const observer = new IntersectionObserver((entries) => {
       entry.target.style.transform = 'translateY(0)';
     }
   });
-}, options);
+}, { threshold: 0.2 });
 
 sections.forEach(sec => {
   sec.style.opacity = 0;
