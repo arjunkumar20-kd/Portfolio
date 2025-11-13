@@ -18,7 +18,7 @@ sections.forEach(sec => {
 
 //  EmailJS Setup
 (function() {
-  emailjs.init("YOUR_PUBLIC_KEY"); // 🔹 Replace with your actual EmailJS Public Key
+  emailjs.init("M0Rf-dSXx3p-oD1H6"); // 🔹 Replace with your actual EmailJS Public Key
 })();
 
 function sendMessage(e) {
@@ -37,7 +37,7 @@ function sendMessage(e) {
     message: message,
   };
 
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+  emailjs.send("service_975uuv6", "template_9i8rjum", params)
     .then(() => {
       status.innerText = "✅ Message sent successfully!";
       status.style.color = "green";
