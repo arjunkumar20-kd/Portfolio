@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BTEUP Admit Card Viewer</title>
+  <style>
+    /* ✅ Base styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* ✅ Card style */
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 35px 30px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 420px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    p {
+      font-size: 15px;
+      color: #d1d5db;
+      margin-bottom: 20px;
+    }
+
+    /* ✅ Input field */
+    input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      font-size: 16px;
+      outline: none;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    input::placeholder {
+      color: #cbd5e1;
+    }
+
+    input:focus {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* ✅ Button */
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .note {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-top: 15px;
+    }
+
+    /* ✅ Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>BTEUP Admit Card</h1>
+    <p>अपना Enrollment Number डालें और “Show Admit Card” पर क्लिक करें।</p>
+
+    <input type="text" id="enroll" placeholder="उदा: E2333183500000" />
+    <button onclick="showAdmitCard()">Show Admit Card</button>
+    <p class="note">सही Enrollment Number डालना सुनिश्चित करें।</p>
+  </div>
+
+  <script>
+    function showAdmitCard() {
+      const enroll = document.getElementById("enroll").value.trim();
+      if (!enroll) {
+        alert("कृपया Enrollment Number दर्ज करें।");
+        return;
+      }
+
+      const url = `https://bteup.ac.in/ESeva/Student/AdmitCard.aspx?EnrollNumber=${encodeURIComponent(enroll)}`;
+      window.open(url, "_blank"); 
+    }
+  </script>
+
+</body>
+</html>
