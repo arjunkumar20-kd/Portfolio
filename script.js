@@ -16,9 +16,36 @@ sections.forEach(sec => {
   observer.observe(sec);
 });
 
-// Contact form simulation
+//  EmailJS Setup
+(function() {
+  emailjs.init("YOUR_PUBLIC_KEY"); // 🔹 Replace with your actual EmailJS Public Key
+})();
+
 function sendMessage(e) {
   e.preventDefault();
-  document.getElementById('status').innerText = "✅ Thank you! Your message has been sent.";
-  e.target.reset();
+
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+  const status = document.getElementById("status");
+
+  status.innerText = "⏳ Sending message...";
+
+  const params = {
+    from_name: name,
+    from_email: email,
+    message: message,
+  };
+
+  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", params)
+    .then(() => {
+      status.innerText = "✅ Message sent successfully!";
+      status.style.color = "green";
+      e.target.reset();
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      status.innerText = "❌ Failed to send message. Please try again later.";
+      status.style.color = "red";
+    });
 }
