@@ -153,12 +153,26 @@ h1, h2 {
   background: #1a1a1a;
   padding: 20px;
   border-radius: 15px;
+  color: #fff; /* ✅ White text */
+  text-decoration: none;
   box-shadow: 0 0 15px rgba(0,191,255,0.3);
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project h3 {
+  color: #00bfff; /* Heading blue for contrast */
+  margin-bottom: 10px;
+}
+
+.project p {
+  color: #ddd; /* Slightly dim white text for readability */
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 .project:hover {
   transform: translateY(8px);
+  box-shadow: 0 0 25px rgba(0,191,255,0.6);
 }
 
 /* ----- Contact ----- */
