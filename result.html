@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTEUP Result Portal</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.wrapper{
+  width:100%;
+  max-width:750px;
+}
+
+.header{
+  background:linear-gradient(to right,#2563eb,#1e40af);
+  color:#fff;
+  padding:30px;
+  border-radius:20px 20px 0 0;
+  text-align:center;
+  box-shadow:0 15px 30px rgba(0,0,0,.3);
+}
+
+.header h1{
+  font-size:2.3rem;
+  margin-bottom:10px;
+}
+
+.header p{
+  opacity:.9;
+}
+
+.dev{
+  margin-top:12px;
+  font-size:14px;
+}
+
+.dev a{
+  color:#e0f2fe;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.container{
+  background:#fff;
+  padding:35px;
+  border-radius:0 0 20px 20px;
+  box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+h2{
+  text-align:center;
+  color:#1e293b;
+  margin-bottom:30px;
+}
+
+.group{
+  margin-bottom:22px;
+}
+
+label{
+  font-weight:600;
+  color:#334155;
+  margin-bottom:6px;
+  display:block;
+}
+
+input{
+  width:100%;
+  padding:14px;
+  border-radius:10px;
+  border:2px solid #e5e7eb;
+  font-size:16px;
+}
+
+input:focus{
+  outline:none;
+  border-color:#2563eb;
+}
+
+.helper{
+  font-size:13px;
+  color:#64748b;
+  margin-top:6px;
+}
+
+.error{
+  color:#dc2626;
+  font-size:13px;
+  margin-top:6px;
+  display:none;
+}
+
+.error.active{display:block;}
+
+button{
+  width:100%;
+  padding:16px;
+  background:linear-gradient(to right,#2563eb,#1e40af);
+  border:none;
+  border-radius:12px;
+  color:#fff;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  background:linear-gradient(to right,#1e40af,#2563eb);
+}
+
+.note{
+  text-align:center;
+  font-size:14px;
+  color:#64748b;
+  margin-top:20px;
+}
+
+.footer{
+  text-align:center;
+  margin-top:25px;
+  font-size:13px;
+  color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <div class="header">
+    <h1>BTEUP Result Checker</h1>
+    <p>Official Revaluation Result Portal</p>
+    <div class="dev">
+      Developed by 
+      <a href="https://github.com/arjunkumar20-kd/" target="_blank">
+        Arjun Kumar
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Enter Your Details</h2>
+
+    <div class="group">
+      <label>Enrollment Number</label>
+      <input type="text" id="enroll" placeholder="Enter Enrollment Number">
+      <div class="error" id="enrollErr">Enrollment number required</div>
+    </div>
+
+    <div class="group">
+      <label>Date of Birth</label>
+      <input type="text" id="dob" placeholder="DD/MM/YYYY">
+      <div class="error" id="dobErr">Enter DOB in DD/MM/YYYY format</div>
+    </div>
+
+    <button onclick="openResult()">Check Result</button>
+
+    <p class="note">
+      Result official BTEUP website par new tab me open hoga.
+    </p>
+
+    <div class="footer">
+      © 2026 | Designed & Developed by Arjun Kumar
+    </div>
+  </div>
+
+</div>
+
+<script>
+let generatedLink = "";
+
+function openResult(){
+
+  let enroll = document.getElementById("enroll").value.trim();
+  let dob = document.getElementById("dob").value.trim();
+
+  document.getElementById("enrollErr").classList.remove("active");
+  document.getElementById("dobErr").classList.remove("active");
+
+  let valid = true;
+
+  if(enroll === ""){
+    document.getElementById("enrollErr").classList.add("active");
+    valid = false;
+  }
+
+  if(!/^\d{2}\/\d{2}\/\d{4}$/.test(dob)){
+    document.getElementById("dobErr").classList.add("active");
+    valid = false;
+  }
+
+  if(!valid) return;
+
+  // 🔐 Encode data (same as Code-1)
+  let encEnroll = btoa(enroll);
+  let encDob = btoa(dob).replace(/=/g,"%3D");
+
+  generatedLink =
+    "https://test.bteupexam.co.in/Odd_Semester/main/result.aspx?id="
+    + encEnroll + "&id2=" + encDob;
+
+  // 🚀 Direct open result
+  window.open(generatedLink, "_blank");
+}
+</script>
+
+</body>
+</html>
